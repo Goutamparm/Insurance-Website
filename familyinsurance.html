@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--------------------------------------Family Insurance Start---------------------------------->
+<section class="bg-warning py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 form-container">
+                <h3 class="text-center section-title">Family Insurance</h3>
+                
+                <!-- Family Insurance Renewal Form -->
+                <form method="post" action="{% url 'familyinsurance' %}">
+                    {% csrf_token %}
+                    
+                    <!-- Policy Number Field -->
+                    <div class="mb-3">
+                        <label for="policyNumber" class="form-label m-2">Policy Number</label>
+                        <input type="text" class="form-control" id="policyNumber" name="policy_number" placeholder="Enter family policy number" required>
+                    </div>
+                    
+                    <!-- Optional: Policy Holder Name -->
+                    <div class="mb-3">
+                        <label for="policyHolderName" class="form-label m-2">Policy Holder Name</label>
+                        <input type="text" class="form-control" id="policyHolderName" name="policy_holder_name" placeholder="Enter policy holder's name" required>
+                    </div>
+                    
+                    <!-- Optional: Email Address -->
+                    <div class="mb-3">
+                        <label for="emailAddress" class="form-label m-2">Email Address</label>
+                        <input type="email" class="form-control" id="emailAddress" name="email_address" placeholder="Enter email address" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button class="btn btn-primary m-2" type="submit">Renew</button>
+                    </div>
+                </form>
+                <!-- End of Form -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--------------------------------------Family Insurance End---------------------------------->
+{% endblock content %}

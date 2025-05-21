@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+<h1>Search Results</h1>
+<p>You searched for: <strong>{{ query }}</strong></p>
+
+{% if results %}
+    <ul>
+        {% for result in results %}
+            <li><a href="{% url 'plan_detail' result.pk %}">{{ result.heading }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found. You might want to check one of our available insurance plans:</p>
+    <ul>
+        <li><a href="{% url 'carinsurance' %}">Car Insurance</a></li>
+        <li><a href="{% url 'familyinsurance' %}">Family Insurance</a></li>
+        <li><a href="{% url 'houseinsurance' %}">House Insurance</a></li>
+        <li><a href="{% url 'healthinsurance' %}">Health Insurance</a></li>
+    </ul>
+{% endif %}
+</body>
+</html>

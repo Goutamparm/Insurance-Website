@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--------------------------------------Car Insurance Start---------------------------------->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="form-container">
+                    <h3 class="text-center section-title">Car Insurance</h3>
+                    <!-- Car Insurance Form -->
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <!-- Car Registration Number -->
+                        <div class="mb-4">
+                            <label for="carRegistrationNumber" class="form-label">Car Registration Number</label>
+                            <input type="text" class="form-control" id="carRegistrationNumber" name="car_registration_number" placeholder="Enter car registration number" required>
+                        </div>
+                        <!-- Car Make -->
+                        <div class="mb-4">
+                            <label for="carMake" class="form-label">Car Make</label>
+                            <input type="text" class="form-control" id="carMake" name="car_make" placeholder="Enter car make (e.g., Toyota)" required>
+                        </div>
+                        <!-- Car Model -->
+                        <div class="mb-4">
+                            <label for="carModel" class="form-label">Car Model</label>
+                            <input type="text" class="form-control" id="carModel" name="car_model" placeholder="Enter car model (e.g., Corolla)" required>
+                        </div>
+                        <!-- Car Year -->
+                        <div class="mb-4">
+                            <label for="carYear" class="form-label">Car Year</label>
+                            <input type="number" class="form-control" id="carYear" name="car_year" placeholder="Enter car year (e.g., 2022)" required>
+                        </div>
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <!-- End of Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--------------------------------------Car Insurance End---------------------------------->
+{% endblock content %}

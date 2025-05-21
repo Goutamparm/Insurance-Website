@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--------------------------------------Health Insurance Start---------------------------------->
+<section class="bg-secondary py-5">
+    <div class="container">
+        <!-- Page Heading -->
+        <div class="text-center mb-4">
+            <h2 class="text-white">Health Insurance Application</h2>
+            <p class="text-white-50">Fill in the details below to get a customized health insurance plan for your family.</p>
+        </div>
+        
+        <!-- Family Member Selection -->
+        <div class="mb-4">
+            <label for="familyMember" class="form-label text-white">Select Family Member</label>
+            <select class="form-select" id="familyMember" aria-label="Select family member" name="family_member" required>
+                <option selected disabled>Choose a family member</option>
+                <option value="self">Self</option>
+                <option value="spouse">Spouse</option>
+                <option value="son">Son</option>
+                <option value="daughter">Daughter</option>
+                <option value="mother">Mother</option>
+                <option value="father">Father</option>
+            </select>
+        </div>
+
+        <!-- Health Insurance Form -->
+        <form method="post" action="{% url 'healthinsurance' %}" class="bg-light p-4 rounded shadow">
+            {% csrf_token %}
+            
+            <!-- Form Section Title -->
+            <h3 class="text-center mb-4">Tell Us a Few More Details</h3>
+            
+            <!-- Date of Birth and Email Fields -->
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" id="dateOfBirth" name="date_of_birth" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+            </div>
+            
+            <!-- Mobile Number and Pincode Fields -->
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="mobileNumber" class="form-label">Mobile Number</label>
+                    <input type="tel" class="form-control" id="mobileNumber" name="mobile_number" placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter pincode" pattern="[0-9]{6}" required>
+                </div>
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+<!--------------------------------------Health Insurance End---------------------------------->
+{% endblock content %}

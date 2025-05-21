@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!--------------------------------------House Insurance Start---------------------------------->
+    <section class="bg-secondary py-5">
+        <div class="container">
+            <!-- House Insurance Form -->
+            <form method="post" action="{% url 'houseinsurance' %}">  <!-- Update the URL to match your house insurance view -->
+                {% csrf_token %}
+                
+                <!-- Form Title -->
+                <div>
+                    <h3 class="text-center text-light">House Insurance</h3>
+                </div>
+
+                <!-- Policy Number Field -->
+                <div class="mb-3">
+                    <label for="policyNumber" class="form-label text-light">Policy Number</label>
+                    <input type="text" class="form-control" id="policyNumber" name="policy_number" placeholder="Enter house insurance policy number" required>
+                </div>
+
+                <!-- Property Address Field -->
+                <div class="mb-3">
+                    <label for="propertyAddress" class="form-label text-light">Property Address</label>
+                    <input type="text" class="form-control" id="propertyAddress" name="property_address" placeholder="Enter the address of the insured property" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button class="btn btn-primary mt-3" type="submit">Renew</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!--------------------------------------House Insurance End---------------------------------->
+{% endblock content %}
